@@ -130,6 +130,12 @@ body {
   align-items: center;
 }
 
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .nav-link {
   text-decoration: none;
   color: var(--text-dark);
@@ -449,6 +455,120 @@ section {
   text-decoration: underline;
 }
 
+/* FAQ Section */
+.faq {
+  background: var(--bg-white);
+}
+
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  contain: layout style;
+}
+
+.faq-item:hover {
+  border-color: var(--primary-light);
+}
+
+.faq-item.is-open {
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 16px rgba(13, 27, 42, 0.08);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-white);
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.faq-question:hover {
+  background: var(--bg-light);
+  color: var(--primary-color);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background: var(--primary-color);
+  border-radius: 4px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background: var(--bg-white);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.faq-icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item.is-open .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-item.is-open .faq-question {
+  color: var(--primary-color);
+}
+
+/* Grid-based height animation: smooth, no fixed max-height, reduces CLS */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 1.5rem 1.25rem;
+  padding-top: 0.5rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border-color);
+}
+
 /* Contact Section */
 .contato {
   background: var(--bg-light);
@@ -668,6 +788,12 @@ section {
 
   .nav-menu.active {
     left: 0;
+  }
+
+  .header-social {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
   }
 
   .menu-toggle {

@@ -1,3 +1,21 @@
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.closest('.faq-item');
+    const isOpen = item.classList.contains('is-open');
+
+    document.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('is-open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    if (!isOpen) {
+      item.classList.add('is-open');
+      button.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
 // Menu Mobile Toggle
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
@@ -125,7 +143,7 @@ const observer = new IntersectionObserver(function (entries) {
 
 // Apply animation to cards
 document.addEventListener('DOMContentLoaded', () => {
-  const animatedElements = document.querySelectorAll('.area-card, .equipe-card, .value-card');
+  const animatedElements = document.querySelectorAll('.area-card, .equipe-card, .value-card, .faq-item');
 
   animatedElements.forEach(el => {
     el.style.opacity = '0';
