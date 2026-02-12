@@ -1,19 +1,9 @@
 /* ============================================
    COLOR SYSTEM - LAW FIRM
-   ============================================
-   To change the site's color palette, modify
-   ONLY the two variables below:
-   
-   - primary-color: Main color (used in headers, 
-     buttons, links, highlights)
-   - secondary-color: Secondary color (used in 
-     highlights, underlines, hover states)
-   
-   All other colors are automatically derived
-   from these two main colors.
+   Blue palette: #0466c8 #0353a4 #023e7d #002855
+   #001845 #001233 #33415c #5c677d #7d8597 #979dac
    ============================================ */
 
-/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -21,35 +11,20 @@
 }
 
 :root {
-  /* ============================================
-     MAIN COLORS - MODIFY ONLY THESE TWO
-     ============================================ */
-  --primary-color: #0d1b2a;
-  /* Main color: Professional dark blue */
-  --secondary-color: #8b6914;
-  /* Secondary color: Serious and elegant gold */
-
-  /* ============================================
-     DERIVED COLORS (automatically calculated)
-     Do not modify these - they are based on the main colors above
-     ============================================ */
-  --primary-light: #1a3a5f;
-  /* Lighter version of primary color */
-  --primary-dark: #050a12;
-  /* Darker version of primary color */
-  --secondary-light: #b8860b;
-  /* Lighter version of secondary color */
-  --secondary-dark: #5a4509;
-  /* Darker version of secondary color */
-
-  /* Text and background colors based on main colors */
-  --text-dark: var(--primary-color);
-  --text-light: #5a6c7d;
-  /* Secondary text based on primary color */
-  --bg-light: #f8f9fa;
+  --primary-color: #001845;
+  --primary-light: #023e7d;
+  --primary-dark: #001233;
+  --accent-color: #0466c8;
+  --secondary-color: #33415c;
+  --text-dark: #001233;
+  --text-medium: #33415c;
+  --text-light: #5c677d;
+  --text-muted: #7d8597;
+  --border-color: #dce1e8;
+  --bg-light: #f5f7fa;
   --bg-white: #ffffff;
-  --border-color: #e0e6ed;
-  /* Subtle borders based on primary color */
+  --icon-stroke: #33415c;
+  --icon-stroke-hover: #001845;
 }
 
 html {
@@ -61,15 +36,16 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
+  background: var(--bg-white);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-/* Header Styles */
+/* ---- Header ---- */
 .header {
   position: fixed;
   top: 0;
@@ -77,16 +53,16 @@ body {
   width: 100%;
   z-index: 1000;
   background: var(--bg-white);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 24, 69, 0.06);
 }
 
 .header-top {
-  height: 4px;
+  height: 3px;
   background: var(--primary-color);
 }
 
 .navbar {
-  padding: 1rem 0;
+  padding: 0.875rem 0;
 }
 
 .navbar .container {
@@ -104,8 +80,8 @@ body {
 }
 
 .logo-circle {
-  width: 45px;
-  height: 45px;
+  width: 42px;
+  height: 42px;
   background: var(--primary-color);
   color: var(--bg-white);
   border-radius: 50%;
@@ -113,14 +89,16 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
 }
 
 .logo-text {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
 }
 
 .nav-menu {
@@ -138,11 +116,11 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--text-medium);
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
   transition: color 0.3s ease;
   position: relative;
 }
@@ -155,15 +133,15 @@ body {
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--primary-color);
+  background: var(--accent-color);
 }
 
 .social-icon {
-  color: var(--text-dark);
+  color: var(--text-muted);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -181,18 +159,19 @@ body {
   border: none;
   cursor: pointer;
   gap: 5px;
+  padding: 4px;
 }
 
 .menu-toggle span {
-  width: 25px;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background: var(--text-dark);
   transition: all 0.3s ease;
   border-radius: 2px;
   transform-origin: center;
 }
 
-/* Hero Section */
+/* ---- Hero ---- */
 .hero {
   position: relative;
   height: 100vh;
@@ -200,21 +179,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="blur"><feGaussianBlur stdDeviation="3"/></filter></defs><circle cx="300" cy="400" r="150" fill="%238b6914" opacity="0.3" filter="url(%23blur)"/><circle cx="900" cy="300" r="120" fill="%238b6914" opacity="0.2" filter="url(%23blur)"/><path d="M600 200 L650 350 L800 400 L650 450 L600 600 L550 450 L400 400 L550 350 Z" fill="%238b6914" opacity="0.25" filter="url(%23blur)"/></svg>');
-  background-size: cover;
-  background-position: center;
-  margin-top: 49px;
+  background: linear-gradient(160deg, var(--primary-light) 0%, var(--primary-color) 50%, var(--primary-dark) 100%);
+  margin-top: 60px;
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(13, 27, 42, 0.7);
-  /* Overlay based on primary-color with 70% opacity */
+  inset: 0;
+  background: rgba(0, 18, 51, 0.55);
 }
 
 .hero-content {
@@ -226,11 +198,12 @@ body {
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   margin-bottom: 1rem;
-  opacity: 0.9;
+  opacity: 0.85;
+  text-transform: uppercase;
 }
 
 .hero-title {
@@ -238,12 +211,12 @@ body {
   font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 2px;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
-/* Section Styles */
+/* ---- Sections ---- */
 section {
-  padding: 80px 0;
+  padding: 90px 0;
 }
 
 .section-header {
@@ -253,20 +226,21 @@ section {
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .title-underline {
-  width: 80px;
-  height: 4px;
-  background: var(--secondary-color);
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
   margin: 0 auto;
+  border-radius: 2px;
 }
 
-/* About Us Section */
+/* ---- About / Quem Somos ---- */
 .quem-somos {
   background: var(--bg-white);
 }
@@ -274,68 +248,86 @@ section {
 .quem-somos-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 64px;
   align-items: start;
 }
 
 .firm-name {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.875rem;
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .firm-subtitle {
   font-style: italic;
-  color: var(--text-light);
-  margin-bottom: 30px;
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-size: 1.05rem;
 }
 
 .firm-description {
   color: var(--text-light);
-  margin-bottom: 20px;
-  line-height: 1.8;
-  font-size: 1rem;
+  margin-bottom: 18px;
+  line-height: 1.75;
+  font-size: 0.975rem;
 }
 
 .quem-somos-values {
   display: grid;
-  gap: 30px;
+  gap: 24px;
 }
 
 .value-card {
-  padding: 30px;
+  padding: 28px 24px;
   background: var(--bg-light);
   border-radius: 8px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .value-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 24, 69, 0.08);
+  border-color: var(--border-color);
 }
 
 .value-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.value-icon svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--icon-stroke);
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.value-card:hover .value-icon svg {
+  stroke: var(--icon-stroke-hover);
 }
 
 .value-card h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-family: 'Playfair Display', serif;
 }
 
 .value-card p {
   color: var(--text-light);
-  font-size: 0.95rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
 }
 
-/* Practice Areas Section */
+/* ---- Practice Areas ---- */
 .areas-atuacao {
   background: var(--bg-light);
 }
@@ -343,43 +335,58 @@ section {
 .areas-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 28px;
 }
 
 .area-card {
   background: var(--bg-white);
-  padding: 40px 30px;
+  padding: 36px 28px;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border: 1px solid var(--border-color);
 }
 
 .area-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  border-color: var(--primary-color);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 24, 69, 0.1);
+  border-color: var(--accent-color);
 }
 
 .area-icon {
-  font-size: 3.5rem;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.area-icon svg {
+  width: 44px;
+  height: 44px;
+  stroke: var(--icon-stroke);
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.area-card:hover .area-icon svg {
+  stroke: var(--icon-stroke-hover);
 }
 
 .area-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: var(--text-dark);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .area-card p {
   color: var(--text-light);
   line-height: 1.7;
-  font-size: 0.95rem;
+  font-size: 0.925rem;
 }
 
-/* Team Section */
+/* ---- Team ---- */
 .equipe {
   background: var(--bg-white);
 }
@@ -387,29 +394,31 @@ section {
 .equipe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 36px;
 }
 
 .equipe-card {
   background: var(--bg-light);
-  border-radius: 12px;
-  padding: 40px 30px;
+  border-radius: 10px;
+  padding: 40px 28px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
 }
 
 .equipe-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 24, 69, 0.1);
+  border-color: var(--border-color);
 }
 
 .equipe-photo {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .photo-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   margin: 0 auto;
   background: var(--primary-color);
   color: var(--bg-white);
@@ -417,70 +426,72 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
 }
 
 .equipe-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   color: var(--text-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .equipe-role {
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 0.95rem;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  letter-spacing: 0.25px;
 }
 
 .equipe-bio {
   color: var(--text-light);
   line-height: 1.7;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
+  margin-bottom: 18px;
+  font-size: 0.925rem;
 }
 
 .equipe-contact a {
-  color: var(--primary-color);
+  color: var(--text-medium);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   transition: color 0.3s ease;
 }
 
 .equipe-contact a:hover {
-  color: var(--secondary-color);
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
-/* FAQ Section */
+/* ---- FAQ ---- */
 .faq {
   background: var(--bg-white);
 }
 
 .faq-accordion {
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
 .faq-item {
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   contain: layout style;
 }
 
 .faq-item:hover {
-  border-color: var(--primary-light);
+  border-color: var(--text-muted);
 }
 
 .faq-item.is-open {
-  border-color: var(--primary-color);
-  box-shadow: 0 4px 16px rgba(13, 27, 42, 0.08);
+  border-color: var(--accent-color);
+  box-shadow: 0 3px 14px rgba(0, 24, 69, 0.06);
 }
 
 .faq-question {
@@ -489,11 +500,11 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: 1.125rem 1.375rem;
   background: var(--bg-white);
   border: none;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 0.975rem;
   font-weight: 600;
   color: var(--text-dark);
   text-align: left;
@@ -508,11 +519,11 @@ section {
 
 .faq-icon {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   position: relative;
   background: var(--primary-color);
-  border-radius: 4px;
+  border-radius: 3px;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
@@ -522,16 +533,16 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px;
+  width: 10px;
   height: 2px;
   background: var(--bg-white);
   transform: translate(-50%, -50%);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .faq-icon::after {
   width: 2px;
-  height: 12px;
+  height: 10px;
 }
 
 .faq-item.is-open .faq-icon::after {
@@ -543,7 +554,6 @@ section {
   color: var(--primary-color);
 }
 
-/* Grid-based height animation: smooth, no fixed max-height, reduces CLS */
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
@@ -561,122 +571,83 @@ section {
 
 .faq-answer p {
   margin: 0;
-  padding: 0 1.5rem 1.25rem;
-  padding-top: 0.5rem;
+  padding: 0.5rem 1.375rem 1.25rem;
   color: var(--text-light);
-  line-height: 1.7;
-  font-size: 0.95rem;
+  line-height: 1.75;
+  font-size: 0.925rem;
   border-top: 1px solid var(--border-color);
 }
 
-/* Contact Section */
+/* ---- Contact ---- */
 .contato {
   background: var(--bg-light);
 }
 
 .contato-content {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .contato-info {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  max-width: 720px;
 }
 
 .info-item {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: flex-start;
 }
 
 .info-icon {
-  font-size: 2rem;
-  min-width: 50px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.info-item:hover .info-icon {
+  border-color: var(--accent-color);
+}
+
+.info-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--icon-stroke);
+  stroke-width: 1.75;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.info-item:hover .info-icon svg {
+  stroke: var(--icon-stroke-hover);
 }
 
 .info-text h4 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   color: var(--text-dark);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .info-text p {
   color: var(--text-light);
-  line-height: 1.8;
-  font-size: 0.95rem;
+  line-height: 1.7;
+  font-size: 0.925rem;
 }
 
-.contato-form {
-  background: var(--bg-white);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 15px;
-  border: 2px solid var(--border-color);
-  border-radius: 6px;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-  background: var(--bg-white);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 18px;
-  background: var(--primary-color);
-  color: var(--bg-white);
-  border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.btn-submit:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(13, 27, 42, 0.3);
-  /* Shadow based on primary-color */
-}
-
-.btn-submit:active {
-  transform: translateY(0);
-}
-
-/* Footer */
+/* ---- Footer ---- */
 .footer {
-  background: var(--primary-color);
+  background: var(--primary-dark);
   color: var(--bg-white);
-  padding: 40px 0;
+  padding: 36px 0;
 }
 
 .footer-content {
@@ -688,12 +659,13 @@ section {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .footer-logo .logo-circle {
-  background: var(--bg-white);
-  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--bg-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-logo .logo-text {
@@ -701,89 +673,59 @@ section {
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 20px;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
 }
 
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.social-link {
-  color: var(--bg-white);
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-link:hover {
-  color: var(--secondary-color);
-  transform: scale(1.1);
-}
-
-/* WhatsApp Floating Button */
+/* ---- WhatsApp ---- */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
   background: #25D366;
   color: var(--bg-white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 3px 16px rgba(37, 211, 102, 0.35);
   z-index: 999;
   transition: all 0.3s ease;
   text-decoration: none;
-  animation: pulse 2s infinite;
+  animation: pulse 2.5s infinite;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+  transform: scale(1.08);
+  box-shadow: 0 5px 22px rgba(37, 211, 102, 0.5);
   background: #20BA5A;
 }
 
-.whatsapp-float:active {
-  transform: scale(0.95);
-}
-
 .whatsapp-float svg {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  }
-
-  50% {
-    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
-  }
-
-  100% {
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  }
+  0%, 100% { box-shadow: 0 3px 16px rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 3px 22px rgba(37, 211, 102, 0.55); }
 }
 
-/* Responsive Design */
+/* ---- Responsive ---- */
 @media (max-width: 968px) {
   .nav-menu {
     position: fixed;
-    top: 72px;
+    top: 60px;
     left: -100%;
     flex-direction: column;
     background: var(--bg-white);
     width: 100%;
     padding: 2rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 24, 69, 0.08);
     transition: left 0.3s ease;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nav-menu.active {
@@ -792,7 +734,7 @@ section {
 
   .header-social {
     margin-top: 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
     border-top: 1px solid var(--border-color);
   }
 
@@ -817,7 +759,7 @@ section {
   }
 
   .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .quem-somos-content {
@@ -831,17 +773,19 @@ section {
 
   .equipe-grid {
     grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
-  .contato-content {
+  .contato-info {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
-    min-height: 500px;
+    min-height: 480px;
   }
 
   .hero-title {
@@ -854,35 +798,31 @@ section {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.875rem;
   }
 
   .areas-grid {
     grid-template-columns: 1fr;
   }
 
-  .contato-form {
-    padding: 30px 20px;
-  }
-
   section {
-    padding: 60px 0;
+    padding: 64px 0;
   }
 }
 
 @media (max-width: 480px) {
   .logo-text {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .logo-circle {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     font-size: 12px;
   }
 
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 1.7rem;
   }
 
   .firm-name {
@@ -890,14 +830,14 @@ section {
   }
 
   .whatsapp-float {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     bottom: 20px;
     right: 20px;
   }
 
   .whatsapp-float svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 }
