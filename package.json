@@ -1,0 +1,23 @@
+{
+  "name": "sandbox-lp",
+  "version": "1.0.0",
+  "description": "Landing page com build automatizado",
+  "main": "index.html",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "clean": "gulp clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-terser": "^2.1.0",
+    "gulp-rename": "^2.0.0",
+    "del": "^6.1.1",
+    "through2": "^4.0.2"
+  }
+}
