@@ -140,7 +140,7 @@ body {
 }
 
 .social-icon:hover {
-  color: var(--primary-color);
+  color: #ffc300;
 }
 
 .menu-toggle {
