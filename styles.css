@@ -156,7 +156,7 @@ body {
 .menu-toggle span {
   width: 24px;
   height: 2px;
-  background: var(--text-dark);
+  background: #ffc300;
   transition: all 0.3s ease;
   border-radius: 2px;
   transform-origin: center;
@@ -708,10 +708,10 @@ section {
 @media (max-width: 968px) {
   .nav-menu {
     position: fixed;
-    top: 60px;
+    top: 80px;
     left: -100%;
     flex-direction: column;
-    background: var(--bg-white);
+    background: var(--primary-color);
     width: 100%;
     padding: 2rem;
     box-shadow: 0 4px 16px rgba(0, 24, 69, 0.08);
