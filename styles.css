@@ -14,6 +14,7 @@
   --primary-color: #001845;
   --primary-light: #023e7d;
   --primary-dark: #001233;
+  --primary-gold: #ffc300
   --accent-color: #0466c8;
   --secondary-color: #33415c;
   --text-dark: #001233;
@@ -177,7 +178,8 @@ body {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 18, 51, 0.55);
+  width: 100%;
+  height: 100%;
 }
 
 .hero-content {
@@ -186,7 +188,10 @@ body {
   text-align: center;
   color: var(--bg-white);
   padding: 2rem;
+  height: 100%;
+
 }
+
 
 .hero-subtitle {
   font-size: 1rem;
@@ -383,19 +388,25 @@ section {
 }
 
 .equipe-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
 
 .equipe-card {
-  background: var(--bg-light);
+  background: var(--bg-white);
   border-radius: 10px;
-  padding: 40px 28px;
-  text-align: center;
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid transparent;
+  text-align: left;
 }
+
 
 .equipe-card:hover {
   transform: translateY(-6px);
@@ -403,21 +414,29 @@ section {
   border-color: var(--border-color);
 }
 
-.equipe-photo {
-  margin-bottom: 24px;
+.equipe-photo1 {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 0;
+}
+.equipe-photo2 {
+  flex: 1;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 0;
 }
 
 .photo-placeholder {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto;
+  width: 220px;
+  height: 220px;
   background: var(--primary-color);
   color: var(--bg-white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
   letter-spacing: 1px;
@@ -425,35 +444,45 @@ section {
 
 .equipe-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.375rem;
-  color: var(--text-dark);
-  margin-bottom: 6px;
+  font-size: 1.6rem;
+  color: #ffc300;
+  margin-bottom: 8px;
+}
+.equipe-content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 16px 16px;
+  background: var(--primary-color);
+  border-radius: 8px;
 }
 
 .equipe-role {
-  color: var(--accent-color);
+  color: var(--bg-white);
   font-weight: 600;
-  margin-bottom: 14px;
-  font-size: 0.9rem;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
   letter-spacing: 0.25px;
 }
 
 .equipe-bio {
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: 18px;
-  font-size: 0.925rem;
+  color: var(--bg-white);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  max-width: 520px;
 }
 
 .equipe-contact a {
-  color: var(--text-medium);
+  color: var(--bg-white);
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .equipe-contact a:hover {
-  color: var(--accent-color);
+  color: var(--bg-white);
   text-decoration: underline;
 }
 
@@ -752,7 +781,9 @@ section {
   .hero-subtitle {
     font-size: 0.85rem;
   }
-
+  .hero-image img {
+  max-width: 300px;
+  }
   .quem-somos-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -763,10 +794,19 @@ section {
   }
 
   .equipe-grid {
-    grid-template-columns: 1fr;
-    max-width: 420px;
-    margin: 0 auto;
-  }
+  flex-direction: column;
+}
+
+.equipe-card,
+.equipe-card.reverse {
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 28px;
+}
+
+.equipe-photo {
+  margin-bottom: 24px;
+}
 
   .contato-info {
     grid-template-columns: 1fr;
