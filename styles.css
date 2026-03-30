@@ -156,7 +156,7 @@ body {
 
 .menu-toggle span {
   width: 24px;
-  height: 2px;
+  height: 4px;
   background: #ffc300;
   transition: all 0.3s ease;
   border-radius: 2px;
@@ -171,7 +171,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(160deg, var(--primary-light) 0%, var(--primary-color) 50%, var(--primary-dark) 100%);
+  //background: linear-gradient(160deg, var(--primary-light) 0%, var(--primary-color) 50%, var(--primary-dark) 100%);
+  background: url('images/banner1.jpg') left top no-repeat,
+   url('images/banner2.jpg') center top no-repeat,
+   url('images/banner3.jpg') right top no-repeat;
+   background-size: 34.3% auto, 34.3% auto, 34.3% auto;
   margin-top: 60px;
 }
 
@@ -364,6 +368,14 @@ section {
   fill: none;
   transition: stroke 0.3s ease;
 }
+.area-icon img {
+  width: 44px;
+  height: 44px;
+  stroke: var(--icon-stroke);
+  stroke-width: 1.5;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
 
 .area-card:hover .area-icon svg {
   stroke: var(--icon-stroke-hover);
@@ -417,7 +429,7 @@ section {
 .equipe-photo1 {
   flex: 1;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin-bottom: 0;
 }
 .equipe-photo2 {
@@ -425,21 +437,22 @@ section {
   display: flex;
   justify-content: start;
   margin-bottom: 0;
+  max-width: 434px;
 }
 
 .photo-placeholder {
-  width: 220px;
-  height: 220px;
-  background: var(--primary-color);
-  color: var(--bg-white);
-  border-radius: 50%;
+  height: 650px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
+  mask-image: linear-gradient(to right, transparent, black 5rem);
+}
+.equipe-photo2 .photo-placeholder {
+  flex: 1;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 0;
+  max-width: 434px;
+   mask-image: linear-gradient(to left, transparent, black 5rem);
 }
 
 .equipe-card h3 {
@@ -735,6 +748,12 @@ section {
 
 /* ---- Responsive ---- */
 @media (max-width: 968px) {
+  .hero{
+    background: url('images/banner1.jpg') left top no-repeat,
+                url('images/banner2.jpg') right top no-repeat;
+   background-size: 51%, 51%;
+   }
+
   .nav-menu {
     position: fixed;
     top: 80px;
@@ -763,7 +782,7 @@ section {
   }
 
   .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(46deg) translate(6px, 5px);
   }
 
   .menu-toggle.active span:nth-child(2) {
@@ -799,9 +818,10 @@ section {
 
 .equipe-card,
 .equipe-card.reverse {
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
-  padding: 40px 28px;
+  padding: 20px 14px;
+  align-items: start;
 }
 
 .equipe-photo {
@@ -817,6 +837,8 @@ section {
 @media (max-width: 640px) {
   .hero {
     min-height: 480px;
+    background: url('images/banner1.jpg') center top no-repeat;
+    background-size: contain;
   }
 
   .hero-title {
@@ -831,7 +853,27 @@ section {
   .section-title {
     font-size: 1.875rem;
   }
-
+  .equipe-grid{
+    align-items: center;
+    max-width: 434px;
+    margin: 0 auto;
+  }
+  .equipe-card, .equipe-card.reverse {
+    gap: 24px;
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 8px;
+    align-items: center;
+  }
+  .equipe-card {
+    flex-direction: column-reverse;
+  }
+  .photo-placeholder {
+    mask-image: linear-gradient(to bottom, transparent, black 5rem);;
+  }
+  .equipe-photo2 .photo-placeholder {
+    mask-image: linear-gradient(to bottom, transparent, black 5rem);;
+  }
   .areas-grid {
     grid-template-columns: 1fr;
   }
